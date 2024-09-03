@@ -46,7 +46,7 @@ public class Carta {
 
     public double atacar(Carta oponente) {
         double PD = destreza * fuerza * nivel;
-        double ED = random.nextDouble();
+        double ED = 0.1 + (0.9 * random.nextDouble());
         if (ED == 0) {
             ED = 0.01;  // evito que el valor sea cero para ED
         }
