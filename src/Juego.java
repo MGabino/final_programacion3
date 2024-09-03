@@ -56,7 +56,7 @@ public class Juego {
     }
 
     public static void iniciarNuevaPartida(Scanner scanner) {
-        System.out.print("¿Desea ingresar las características de las cartas manualmente? ( si / no ): ");
+        System.out.print("¿Desea crear sus cartas manualmente? ingrese 'si' si quiere crear sus cartas: ");
         boolean manual = scanner.next().toLowerCase().equals("si");
 
         // Crear cartas para cada jugador
@@ -107,11 +107,11 @@ public class Juego {
         for (int i = 0; i < 3; i++) {
             String nombre = manual ? pedirCadena("\nNombre de la nueva carta: ") : nombresPredeterminados.get(new Random().nextInt(nombresPredeterminados.size()));
             TipoCarta tipo = manual ? pedirTipoCarta() : TipoCarta.values()[new Random().nextInt(TipoCarta.values().length)];
-            int velocidad = manual ? pedirEntero("Velocidad (1-10): ", 1, 10) : new Random().nextInt(10) + 1;
+            int velocidad = manual ? pedirEntero("Velocidad (1-10): ", 1, 10) : new Random().nextInt(6) + 1;
             int destreza = manual ? pedirEntero("Destreza (1-5): ", 1, 5) : new Random().nextInt(5) + 1;
             int fuerza = manual ? pedirEntero("Fuerza (1-10): ", 1, 10) : new Random().nextInt(10) + 1;
             int nivel = manual ? pedirEntero("Nivel (1-10): ", 1, 10) : new Random().nextInt(10) + 1;
-            int armadura = manual ? pedirEntero("Armadura (1-10): ", 1, 10) : new Random().nextInt(10) + 1;
+            int armadura = manual ? pedirEntero("Armadura (1-10): ", 1, 10) : new Random().nextInt(6) + 1;
             String apodo = manual ? pedirCadena("Apodo: ") : apodosPredeterminados.get(new Random().nextInt(apodosPredeterminados.size()));
             LocalDate fechaNacimiento = manual ? pedirFecha("Fecha de nacimiento (dd/MM/yyyy): ")
                     : LocalDate.of(new Random().nextInt(40) + 1980, new Random().nextInt(12) + 1, new Random().nextInt(28) + 1);
