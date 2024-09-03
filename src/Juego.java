@@ -26,24 +26,31 @@ public class Juego {
             System.out.println("3. Comenzar una nueva partida");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
-            int opcion = scanner.nextInt();
 
-            switch (opcion) {
-                case 1:
-                    mostrarPartidasAnteriores();
-                    break;
-                case 2:
-                    eliminarLogs();
-                    break;
-                case 3:
-                    iniciarNuevaPartida(scanner);
-                    break;
-                case 4:
-                    salir = true;
-                    System.out.println("Saliendo del juego. ¡Hasta la próxima!");
-                    break;
-                default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción del menú.");
+            try {
+                int opcion = scanner.nextInt();
+                scanner.nextLine(); // Consumir la nueva línea
+
+                switch (opcion) {
+                    case 1:
+                        mostrarPartidasAnteriores();
+                        break;
+                    case 2:
+                        eliminarLogs();
+                        break;
+                    case 3:
+                        iniciarNuevaPartida(scanner);
+                        break;
+                    case 4:
+                        salir = true;
+                        System.out.println("Saliendo del juego. ¡Hasta la próxima!");
+                        break;
+                    default:
+                        System.out.println("Opción no válida. Por favor, seleccione una opción del menú.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Debe ingresar un número. Por favor, intente de nuevo.");
+                scanner.next(); // Limpiar el input inválido
             }
         }
     }
